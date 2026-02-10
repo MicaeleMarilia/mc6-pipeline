@@ -1,19 +1,19 @@
 # CHAVE_DE_REGISTRO_CYPRESS = de1dceea-b631-483c-bca0-0a659f376f46
 name: Cypress Tests # Nome da pipe
-on: # Momento que vai ser executado
-    pull_request:
-        branches: [master]
+on: # Quando" a automação deve começar
+    pull_request: # O gatilho é a criação ou atualização de um PR
+        branches: [master] # Se o destino do PR for a branch master
 jobs:
-    cypress-run: # Job de execução
-        runs-on: ubuntu-latest #Qual computador vai executar
+    cypress-run: # ID/nome deste trabalho específico
+        runs-on: ubuntu-latest # Máquina onde o teste vai rodar
 
         steps: # Os passos para rodar o projeto
           - name: Clonar o projeto
-            uses: actions/checkout@v4
+            uses: actions/checkout@v6 # Faz o git clone
 
-          - name: Cypress run
-            uses: cypress-io/github-action@v6
+          - name: Cypress runs-on
+            uses: cypress-io/github-action@v7 # Instala as dependências
             with:
-                record: true
+                record: true # Atualizar o resultado no Cypress Cloud
             env:
-                CYPRESS_RECORD_KEY: de1dceea-b631-483c-bca0-0a659f376f46
+                CYPRESS_RECORD_KEY: de1dceea-b631-483c-bca0-0a659f376f46 # Chave de autenticação
