@@ -1,0 +1,19 @@
+# CHAVE_DE_REGISTRO_CYPRESS = de1dceea-b631-483c-bca0-0a659f376f46
+name: Cypress Tests # Nome da pipe
+on: # Momento que vai ser executado
+    pull_request:
+        branches: [master]
+jobs:
+    cypress-run: # Job de execução
+        runs-on: ubuntu-latest #Qual computador vai executar
+
+        steps: # Os passos para rodar o projeto
+          - name: Clonar o projeto
+            uses: actions/checkout@v4
+
+          - name: Cypress run
+            uses: cypress-io/github-action@v6
+            with:
+                record: true
+            env:
+                CYPRESS_RECORD_KEY: e1dceea-b631-483c-bca0-0a659f376f46
