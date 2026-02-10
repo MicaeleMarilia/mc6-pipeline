@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-Cypress.Commands.add('preencherNome', (fname) => {
+Cypress.Commands.add('preencherNomeCk', (fname) => {
     cy.get('#fname').type(fname)
 })
 
@@ -12,7 +12,7 @@ Cypress.Commands.add('preencherNomeEmpresa', (cname) => {
     cy.get('#cname').type(cname)
 })
 
-Cypress.Commands.add('preencherEmail', (email) => {
+Cypress.Commands.add('preencherEmailCk', (email) => {
     cy.get('#email').type(email)
 })
 
@@ -45,10 +45,10 @@ Cypress.Commands.add('clicarSalvar', () => {
 })
 
 Cypress.Commands.add('preencherCampos', (fname, lname, cname, email, zip, faddress, messages) => {
-    cy.preencherNome(fname)
+    cy.preencherNomeCk(fname)
     cy.preencherSobrenome(lname)
     cy.preencherNomeEmpresa(cname)
-    cy.preencherEmail(email)
+    cy.preencherEmailCk(email)
     cy.preencherPais()
     cy.preencherCidade()
     cy.preencherCep(zip)

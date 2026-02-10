@@ -24,8 +24,8 @@ describe('Login', () => {
         it(`Login com sucesso - Tela ${tamanho}`, () => {
 
             cy.preencherUsuario(user)
-            cy.preencherSenha(password)
-            cy.clicarCadastrar()
+            cy.preencherSenhaLg(password)
+            cy.clicarLogin()
 
             cy.validarLogin(user)
 
@@ -33,32 +33,32 @@ describe('Login', () => {
 
         it('Login email vazio', () => {
 
-            cy.preencherSenha(password)
-            cy.clicarCadastrar()
+            cy.preencherSenhaLg(password)
+            cy.clicarLogin()
 
-            cy.validarEmail()
+            cy.validarEmailLg()
 
         })
 
         it('Login senha vazia', () => {
 
             cy.preencherUsuario(user)
-            cy.clicarCadastrar()
+            cy.clicarLogin()
 
-            cy.validarSenha()
+            cy.validarSenhaLg()
 
 
         })
 
         it('Login email invalido', () => {
 
-            cy.validarEmailInvalido(password)
+            cy.validarEmailInvalidoLg(password)
 
         })
 
         it('Login senha invalida', () => {
 
-            cy.validarSenhaInvalida(user)
+            cy.validarSenhaInvalidaLg(user)
 
         })
     })
