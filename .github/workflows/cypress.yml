@@ -1,8 +1,11 @@
 # CHAVE_DE_REGISTRO_CYPRESS = de1dceea-b631-483c-bca0-0a659f376f46
 name: Cypress Tests # Nome da pipe
 on: # Quando" a automação deve começar
-    pull_request: # O gatilho é a criação ou atualização de um PR
-        branches: [master] # Se o destino do PR for a branch master
+    #pull_request: # O gatilho é a criação ou atualização de um PR
+        #branches: [master] # Se o destino do PR for a branch master #
+    schedule:
+        - cron: "35 * * * 1-5" 
+        # Runs at 35 minutes past the hour, Monday through Friday
 jobs:
     cypress-run: # ID/nome deste trabalho específico
         runs-on: ubuntu-latest # Máquina onde o teste vai rodar
