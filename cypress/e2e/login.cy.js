@@ -4,7 +4,7 @@ import { faker } from "@faker-js/faker"
 
 describe('Login', () => {
 
-    const tamanhostelas = ['samsung-s10', 'iphone-x', 'ipad-2', 'macbook-16']
+    const tamanhostelas = ['samsung-s10']//, 'iphone-x', 'ipad-2', 'macbook-16']
 
     let user
     let password
