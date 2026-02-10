@@ -4,11 +4,11 @@ Cypress.Commands.add('preencherUsuario', (user) => {
     cy.get('#user').type(user)
 })
 
-Cypress.Commands.add('preencherSenha', (password) => {
+Cypress.Commands.add('preencherSenhaLg', (password) => {
     cy.get('#password').type(password)
 })
 
-Cypress.Commands.add('clicarCadastrar', () => {
+Cypress.Commands.add('clicarLogin', () => {
     cy.get('#btnLogin').click()
 })
 
@@ -22,30 +22,30 @@ Cypress.Commands.add('validarLogin', (user) => {
         .should('have.text', `Olá, ${user}`)
 })
 
-Cypress.Commands.add('validarEmail', () => {
+Cypress.Commands.add('validarEmailLg', () => {
     cy.get('.invalid_input')
         .should('be.visible')
         .should('have.text', 'E-mail inválido.')
 })
 
-Cypress.Commands.add('validarSenha', () => {
+Cypress.Commands.add('validarSenhaLg', () => {
     cy.get('.invalid_input')
         .should('be.visible')
         .should('have.text', 'Senha inválida.')
 })
 
-Cypress.Commands.add('validarEmailInvalido', (password) => {
+Cypress.Commands.add('validarEmailInvalidoLg', (password) => {
     cy.preencherUsuario('emailinvalido@')
-    cy.preencherSenha(password)
-    cy.clicarCadastrar()
-    cy.validarEmail()
+    cy.preencherSenhaLg(password)
+    cy.clicarLogin()
+    cy.validarEmailLg()
 
 })
 
-Cypress.Commands.add('validarSenhaInvalida', (user) => {
+Cypress.Commands.add('validarSenhaInvalidaLg', (user) => {
     cy.preencherUsuario(user)
-    cy.preencherSenha('123')
-    cy.clicarCadastrar()
-    cy.validarSenha()
+    cy.preencherSenhaLg('123')
+    cy.clicarLogin()
+    cy.validarSenhaLg()
 
 })
