@@ -1,0 +1,22 @@
+# CHAVE_DE_REGISTRO_CYPRESS = de1dceea-b631-483c-bca0-0a659f376f46
+# Para criar em outros ferramentas(GitHub Actions, GitLab CI, CircleCI, Azure, Bitbucket, AWS CodeBuild)
+# np CI Cloud, seleciona a ferramenta que deseja e cria o arquivo de configuração na pasta raiz do projeto (nome definido)
+name: Cypress Tests # Nome da pipe
+on: # Quando" a automação deve começar
+    schedule:
+        - cron: "35 * * * 1-5" 
+        # Runs at 35 minutes past the hour, Monday through Friday
+jobs:
+    cypress-run: # ID/nome deste trabalho específico
+        runs-on: ubuntu-latest # Máquina onde o teste vai rodar
+
+        steps: # Os passos para rodar o projeto
+          - name: Clonar o projeto
+            uses: actions/checkout@v6 # Faz o git clone
+
+          - name: Cypress runs-on
+            uses: cypress-io/github-action@v7 # Instala as dependências
+            with:
+                record: true # Atualizar o resultado no Cypress Cloud
+            env:
+                CYPRESS_RECORD_KEY: de1dceea-b631-483c-bca0-0a659f376f46 # Chave de autenticação
