@@ -1,13 +1,5 @@
 /// <reference types="cypress"/>
 
-Cypress.Commands.add('preencherUsuario', (user) => {
-    cy.get('#user').type(user)
-})
-
-Cypress.Commands.add('preencherSenhaLg', (password) => {
-    cy.get('#password').type(password)
-})
-
 Cypress.Commands.add('clicarLogin', () => {
     cy.get('#btnLogin').click()
 })
@@ -36,7 +28,7 @@ Cypress.Commands.add('validarSenhaLg', () => {
 
 Cypress.Commands.add('validarEmailInvalidoLg', (password) => {
     cy.preencherUsuario('emailinvalido@')
-    cy.preencherSenhaLg(password)
+    cy.preencherSenha(password)
     cy.clicarLogin()
     cy.validarEmailLg()
 
@@ -44,7 +36,7 @@ Cypress.Commands.add('validarEmailInvalidoLg', (password) => {
 
 Cypress.Commands.add('validarSenhaInvalidaLg', (user) => {
     cy.preencherUsuario(user)
-    cy.preencherSenhaLg('123')
+    cy.preencherSenha('123')
     cy.clicarLogin()
     cy.validarSenhaLg()
 

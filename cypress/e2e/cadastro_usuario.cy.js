@@ -22,7 +22,7 @@ describe('Cadastro do usuario', () =>{
 
     it('Cadastro com sucesso', ()=>{
 
-        cy.preencherNome(user)
+        cy.preencherUsuario(user)
         cy.preencherEmail(email)
         cy.preencherSenha(password)
         cy.clicarCadastrar()
@@ -42,7 +42,7 @@ describe('Cadastro do usuario', () =>{
 
     it('Cadastro email vazio', ()=>{
 
-        cy.preencherNome(user)
+        cy.preencherUsuario(user)
         cy.preencherSenha(password)
         cy.clicarCadastrar()
         cy.validarEmail()
@@ -51,7 +51,7 @@ describe('Cadastro do usuario', () =>{
 
     it('Cadastro senha vazia', ()=>{
 
-        cy.preencherNome(user)
+        cy.preencherUsuario(user)
         cy.preencherEmail(email)
         cy.clicarCadastrar()
         cy.validarSenha()

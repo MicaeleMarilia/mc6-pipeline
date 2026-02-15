@@ -24,7 +24,7 @@ describe('Login', () => {
         it(`Login com sucesso - Tela ${tamanho}`, () => {
 
             cy.preencherUsuario(user)
-            cy.preencherSenhaLg(password)
+            cy.preencherSenha(password)
             cy.clicarLogin()
 
             cy.validarLogin(user)
@@ -33,7 +33,7 @@ describe('Login', () => {
 
         it('Login email vazio', () => {
 
-            cy.preencherSenhaLg(password)
+            cy.preencherSenha(password)
             cy.clicarLogin()
 
             cy.validarEmailLg()
