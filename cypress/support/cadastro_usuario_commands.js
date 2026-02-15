@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-Cypress.Commands.add('preencherNome', (user) => {
+Cypress.Commands.add('preencherUsuario', (user) => {
     cy.get('#user').type(user)
 })
 
@@ -27,7 +27,7 @@ Cypress.Commands.add('validarCadastro', (user) => {
 })
 
 Cypress.Commands.add('cadastrarUsuario', (user, email, password) => {
-    cy.preencherNome(user)
+    cy.preencherUsuario(user)
     cy.preencherEmail(email)
     cy.preencherSenha(password)
     cy.clicarCadastrar()
@@ -54,7 +54,7 @@ Cypress.Commands.add('validarSenha', () => {
 })
 
 Cypress.Commands.add('validarEmailInvalido', (user, password) => {
-    cy.preencherNome(user)
+    cy.preencherUsuario(user)
     cy.preencherEmail('emailinvalido@')
     cy.preencherSenha(password)
     cy.clicarCadastrar()
@@ -64,7 +64,7 @@ Cypress.Commands.add('validarEmailInvalido', (user, password) => {
 })
 
 Cypress.Commands.add('validarSenhaInvalida', (user, email) => {
-    cy.preencherNome(user)
+    cy.preencherUsuario(user)
     cy.preencherEmail(email)
     cy.preencherSenha('123')
     cy.clicarCadastrar()
